@@ -34,6 +34,7 @@ Create the cluster using the configuration file:
 kind create cluster --config kind-config.yaml --name tws-kind-cluster
 ```
 Verify the cluster:
+kubectl cluster-info --context kind-tws-kind-cluster
 
 ```bash
 
