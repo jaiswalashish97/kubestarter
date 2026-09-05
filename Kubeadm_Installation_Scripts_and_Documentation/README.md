@@ -175,7 +175,7 @@ This guide outlines the steps needed to set up a Kubernetes cluster using `kubea
 
 ---For troubleshooting:-
 
-on clontrol-plane
+on control-plane
 
 ubuntu@ip-172-31-91-126:~$ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex
 SHA2-256(stdin)= f2c76b2d59bfcb3c3cc60c55ddde666196f5c003e82f72089407cee2d4ca3ab6
