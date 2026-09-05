@@ -173,29 +173,7 @@ This guide outlines the steps needed to set up a Kubernetes cluster using `kubea
     > sudo <paste-join-command-here> --v=5
     > ```
 
----For troubleshooting:-
 
-on control-plane
-
-ubuntu@ip-172-31-91-126:~$ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex
-SHA2-256(stdin)= f2c76b2d59bfcb3c3cc60c55ddde666196f5c003e82f72089407cee2d4ca3ab6
-ubuntu@ip-172-31-91-126:~$ kubectl get nodes
-NAME               STATUS   ROLES           AGE   VERSION
-ip-172-31-91-126   Ready    control-plane   23m   v1.29.15
-ubuntu@ip-172-31-91-126:~$ 
-
-On worker Node:-
-
-sudo kubeadm reset pre-flight checks
-sudo kubeadm join 172.31.91.126:6443 --token 3xhfbg.o1ka5de9mgjh0wso --discovery-token-ca-cert-hash sha256:f2c76b2d59bfcb3c3cc60c55ddde666196f5c003e82f72089407cee2d4ca3ab6
-
-On control-plane:-
-
-ubuntu@ip-172-31-91-126:~$ kubectl get nodes
-NAME               STATUS   ROLES           AGE   VERSION
-ip-172-31-91-126   Ready    control-plane   23m   v1.29.15
-ip-172-31-92-105   Ready    <none>          14s   v1.29.15
-ubuntu@ip-172-31-91-126:~$ 
 
 ## Verify Cluster Connection
 
